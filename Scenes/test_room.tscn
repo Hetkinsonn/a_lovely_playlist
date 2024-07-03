@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2yh6bjijm7j4"]
+
+[ext_resource type="PackedScene" uid="uid://buwhnonx0h8q6" path="res://Scenes/Liya.tscn" id="1_irvn2"]
+[ext_resource type="PackedScene" uid="uid://cqinsp76bvluw" path="res://plohie_chuvstva.tscn" id="2_vjks2"]
+
+[sub_resource type="Gradient" id="Gradient_p7kvs"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0.0625, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o75is"]
+gradient = SubResource("Gradient_p7kvs")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8s5q"]
+size = Vector2(1152, 64)
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="Plohie_chuvstva" parent="." instance=ExtResource("2_vjks2")]
+position = Vector2(600, 544)
+Beg = 488.0
+End = 672.0
+
+[node name="Plohie_chuvstva2" parent="." instance=ExtResource("2_vjks2")]
+position = Vector2(2400, 544)
+Beg = 488.0
+End = 672.0
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 608)
+
+[node name="Texture" type="Sprite2D" parent="Floor"]
+position = Vector2(-64, 0)
+scale = Vector2(18, 1)
+texture = SubResource("GradientTexture2D_o75is")
+
+[node name="Collision" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_q8s5q")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(-64, 544)
+
+[node name="Texture" type="Sprite2D" parent="Floor2"]
+position = Vector2(-64, 0)
+scale = Vector2(18, 1)
+texture = SubResource("GradientTexture2D_o75is")
+
+[node name="Collision" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_q8s5q")
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2(1728, 544)
+
+[node name="Texture" type="Sprite2D" parent="Floor3"]
+position = Vector2(-64, 0)
+scale = Vector2(18, 1)
+texture = SubResource("GradientTexture2D_o75is")
+
+[node name="Collision" type="CollisionShape2D" parent="Floor3"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_q8s5q")
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+position = Vector2(2304, 608)
+
+[node name="Texture" type="Sprite2D" parent="Floor4"]
+position = Vector2(-64, 0)
+scale = Vector2(18, 1)
+texture = SubResource("GradientTexture2D_o75is")
+
+[node name="Collision" type="CollisionShape2D" parent="Floor4"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_q8s5q")
+
+[node name="Floor5" type="StaticBody2D" parent="."]
+position = Vector2(3200, 544)
+
+[node name="Texture" type="Sprite2D" parent="Floor5"]
+position = Vector2(-64, 0)
+scale = Vector2(18, 1)
+texture = SubResource("GradientTexture2D_o75is")
+
+[node name="Collision" type="CollisionShape2D" parent="Floor5"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_q8s5q")
+
+[node name="LiyaPlayer" parent="." instance=ExtResource("1_irvn2")]
+position = Vector2(104, 448)

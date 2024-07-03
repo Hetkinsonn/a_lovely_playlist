@@ -1,0 +1,14 @@
+CollisionShape2D
+CollisionPolygon2D
+ProgressBar
+Polygon2D
+Sprite2D
+StaticBody2D
+Area2D
+AnimatedSprite2D
+CharacterBody2D
+Node2D
+Camera2D
+TileMap
+ParallaxLayer
+ParallaxBackground

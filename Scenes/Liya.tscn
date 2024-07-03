@@ -1,0 +1,139 @@
+[gd_scene load_steps=18 format=3 uid="uid://buwhnonx0h8q6"]
+
+[ext_resource type="Texture2D" uid="uid://cyul6licn7gjg" path="res://shrex.png" id="1_mox1o"]
+[ext_resource type="Script" path="res://Scripts/Liya.gd" id="1_vecxo"]
+[ext_resource type="Texture2D" uid="uid://bhidu36hwn6ie" path="res://Images/beg.webp" id="2_o3pcf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xycf3"]
+radius = 9.0
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wslh"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(0, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6btr"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(44, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i7ub"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(88, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxyvd"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(132, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2rly"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(176, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0abxy"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(220, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgkig"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(264, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es2sy"]
+atlas = ExtResource("2_o3pcf")
+region = Rect2(308, 52, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuwlx"]
+atlas = ExtResource("1_mox1o")
+region = Rect2(0, 0, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkdp2"]
+atlas = ExtResource("1_mox1o")
+region = Rect2(44, 0, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmw13"]
+atlas = ExtResource("1_mox1o")
+region = Rect2(88, 0, 44, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tgrj"]
+atlas = ExtResource("1_mox1o")
+region = Rect2(132, 0, 44, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_po0au"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Mefedron",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wslh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6btr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i7ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxyvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2rly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0abxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgkig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es2sy")
+}],
+"loop": true,
+"name": &"hodba",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuwlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkdp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmw13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tgrj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="LiyaPlayer" type="CharacterBody2D"]
+script = ExtResource("1_vecxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -7)
+shape = SubResource("CapsuleShape2D_xycf3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_po0au")
+animation = &"hodba"
+autoplay = "idle"
+frame_progress = 0.00561465
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.7, 1.7)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 618.0
+offset_bottom = 115.0
+scale = Vector2(0.0984167, 0.0984167)
+theme_override_font_sizes/font_size = 116
+step = 1.0
