@@ -33,7 +33,6 @@ func _physics_process(delta):
 		#look_at(Vector2(target.position.x,position.y))
 		var different = target.position.x - position.x
 		var gpx = global_position.x
-		print(different)
 		if different > 0: #Right
 			velocity.x = 50
 			AS.play("run")

@@ -1,5 +1,8 @@
 res://Scenes/test_room.tscn
-res://plohie_chuvstva.gd
+res://Scripts/dialogs.gd
+res://Scripts/Liya.gd
 res://plohie_chuvstva.tscn
 res://Scenes/Liya.tscn
-res://Scripts/Liya.gd
+res://Scenes/dialog_window.tscn
+res://Scripts/DialogWindow.gd
+res://plohie_chuvstva.gd

@@ -1,3 +1,5 @@
+Label
+ColorRect
 CollisionShape2D
 CollisionPolygon2D
 ProgressBar
@@ -11,4 +13,3 @@ Node2D
 Camera2D
 TileMap
 ParallaxLayer
-ParallaxBackground

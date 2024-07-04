@@ -2,16 +2,27 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 @onready var HB = $HealthBar
+@onready var d = Dialogs
+@onready var cam = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var jj = true
+var jj = true #double jump
+@export var is_moving = false
 @export var Health = 100
 @export var debuff1 = 0 #Can't healing
 
+func camera_smoothing():
+	pass
+
+func _ready():
+	d.CreateDialogWindow("Bebra","hi",Vector2(-575,115),1,self)
+
 func _process(delta):
+	camera_smoothing()
+	print(is_moving)
 	HB.value = Health
 	if Health < 1:
 		_exit_tree()
@@ -27,18 +38,23 @@ func _physics_process(delta):
 		jj = true
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		is_moving = true
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		is_moving = true
 	if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and jj == true:
 		velocity.y = JUMP_VELOCITY
 		jj = false
+		is_moving = true
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		anim.play("hodba")
+		is_moving = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("idle")
+		is_moving = false
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = true
 	elif direction == 1:

@@ -125,9 +125,7 @@ autoplay = "idle"
 frame_progress = 0.00561465
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.7, 1.7)
 process_callback = 0
-position_smoothing_enabled = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -32.0
