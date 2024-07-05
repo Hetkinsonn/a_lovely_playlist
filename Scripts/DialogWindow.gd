@@ -6,5 +6,6 @@ extends Control
 @export var Liya : Node2D
 
 func _ready():
+	name = "DialogWindow"
 	$CharacterName.text = str(character_name)
 	$DialogText.text = str(text)

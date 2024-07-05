@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://da2xt52l7xcyj"]
+
+[ext_resource type="Script" path="res://Scripts/shell.gd" id="1_q1enl"]
+[ext_resource type="Shader" path="res://Other/shell.gdshader" id="2_qep7t"]
+
+[sub_resource type="Curve" id="Curve_g66op"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25969, -0.690566), 0.0, 0.0, 0, 0, Vector2(0.639535, 0.516981), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lglo7"]
+curve = SubResource("Curve_g66op")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_euxnl"]
+shader = ExtResource("2_qep7t")
+shader_parameter/curve = SubResource("CurveTexture_lglo7")
+
+[sub_resource type="Gradient" id="Gradient_jccea"]
+interpolation_mode = 2
+colors = PackedColorArray(0.982747, 1, 0.723958, 1, 0.90625, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s2k8u"]
+gradient = SubResource("Gradient_jccea")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycdgi"]
+radius = 24.0
+
+[node name="Shell" type="CharacterBody2D"]
+script = ExtResource("1_q1enl")
+
+[node name="Texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_euxnl")
+texture = SubResource("GradientTexture2D_s2k8u")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ycdgi")
+disabled = true
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Detector"]
+visible = false
+shape = SubResource("CircleShape2D_ycdgi")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2

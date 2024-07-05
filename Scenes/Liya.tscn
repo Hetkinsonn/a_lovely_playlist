@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://buwhnonx0h8q6"]
+[gd_scene load_steps=20 format=3 uid="uid://buwhnonx0h8q6"]
 
 [ext_resource type="Texture2D" uid="uid://cyul6licn7gjg" path="res://shrex.png" id="1_mox1o"]
 [ext_resource type="Script" path="res://Scripts/Liya.gd" id="1_vecxo"]
@@ -110,6 +110,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_pfpco"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iunpy"]
+gradient = SubResource("Gradient_pfpco")
+fill = 1
+fill_from = Vector2(0.2, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
 [node name="LiyaPlayer" type="CharacterBody2D"]
 script = ExtResource("1_vecxo")
 
@@ -135,3 +145,28 @@ offset_bottom = 115.0
 scale = Vector2(0.0984167, 0.0984167)
 theme_override_font_sizes/font_size = 116
 step = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+scale = Vector2(1.23938, 0.55838)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_iunpy")
+offset = Vector2(51.6385, 0)
+texture_scale = 2.97
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -320.0
+offset_right = 576.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 320)

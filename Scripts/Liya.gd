@@ -18,11 +18,11 @@ func camera_smoothing():
 	pass
 
 func _ready():
-	d.CreateDialogWindow("Bebra","hi",Vector2(-575,115),1,self)
+	pass
 
 func _process(delta):
+	$PointLight2D.look_at(get_global_mouse_position())
 	camera_smoothing()
-	print(is_moving)
 	HB.value = Health
 	if Health < 1:
 		_exit_tree()
