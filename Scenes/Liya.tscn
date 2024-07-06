@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://buwhnonx0h8q6"]
+[gd_scene load_steps=18 format=3 uid="uid://buwhnonx0h8q6"]
 
 [ext_resource type="Texture2D" uid="uid://cyul6licn7gjg" path="res://shrex.png" id="1_mox1o"]
 [ext_resource type="Script" path="res://Scripts/Liya.gd" id="1_vecxo"]
@@ -110,16 +110,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_pfpco"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_iunpy"]
-gradient = SubResource("Gradient_pfpco")
-fill = 1
-fill_from = Vector2(0.2, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
-
 [node name="LiyaPlayer" type="CharacterBody2D"]
 script = ExtResource("1_vecxo")
 
@@ -137,26 +127,10 @@ frame_progress = 0.00561465
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -32.0
-offset_top = -48.0
-offset_right = 618.0
-offset_bottom = 115.0
-scale = Vector2(0.0984167, 0.0984167)
-theme_override_font_sizes/font_size = 116
-step = 1.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(0, -8)
-scale = Vector2(1.23938, 0.55838)
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("GradientTexture2D_iunpy")
-offset = Vector2(51.6385, 0)
-texture_scale = 2.97
-
 [node name="GUI" type="Control" parent="."]
+light_mask = 2
+visibility_layer = 2
+z_index = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,3 +144,15 @@ offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 320)
+
+[node name="HealthBar" type="ProgressBar" parent="GUI"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 272.0
+offset_right = 1194.0
+offset_bottom = 435.0
+scale = Vector2(0.0984167, 0.0984167)
+theme_override_font_sizes/font_size = 116
+step = 1.0
+
+[node name="RotPo" type="Node2D" parent="."]

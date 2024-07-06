@@ -1,9 +1,11 @@
-res://Scenes/test_room.tscn
-res://Scripts/Liya.gd
-res://plohie_chuvstva.tscn
+res://Scenes/shell.tscn
+res://Other/shell.gdshader
+res://Other/shell.tres
 res://Scenes/Liya.tscn
+res://Scenes/test_room.tscn
 res://Scenes/dialog_window.tscn
 res://Scenes/floor.tscn
-res://Scenes/shell.tscn
 res://Scripts/shell.gd
-res://Other/shell.gdshader
+res://Scenes/explosion.tscn
+res://Scripts/explosion.gd
+res://Scripts/Liya.gd

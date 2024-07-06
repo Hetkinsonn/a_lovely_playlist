@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-@onready var HB = $HealthBar
+@onready var HB = $GUI/HealthBar
 @onready var d = Dialogs
 @onready var cam = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
+
+var shell = preload("res://Scenes/shell.tscn")
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jj = true #double jump
@@ -21,7 +23,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	$PointLight2D.look_at(get_global_mouse_position())
 	camera_smoothing()
 	HB.value = Health
 	if Health < 1:
@@ -62,6 +63,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event):
+	$RotPo.look_at(get_global_mouse_position())
 	if Input.is_action_pressed("mmb_up"):
 		$Camera2D.zoom.x *= 1.2
 		$Camera2D.zoom.y *= 1.2
@@ -69,7 +71,10 @@ func _input(event):
 		$Camera2D.zoom.x /= 1.2
 		$Camera2D.zoom.y /= 1.2
 	if Input.is_action_just_pressed("lbm"):
-		pass
+		var si = shell.instantiate()
+		si.position = global_position
+		si.rotation = $RotPo.global_rotation
+		get_tree().current_scene.add_child(si)
 
 func _exit_tree():
 	get_tree().change_scene_to_file("res://Scenes/test_room.tscn")

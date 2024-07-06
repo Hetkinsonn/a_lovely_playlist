@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b5ho76xxaoaly"]
+
+[ext_resource type="Shader" path="res://Other/shell.gdshader" id="1_mshfl"]
+
+[resource]
+shader = ExtResource("1_mshfl")
+shader_parameter/speed = 5.0
+shader_parameter/height = 50.0

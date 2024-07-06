@@ -1,3 +1,8 @@
+Node2D
+Timer
+GPUParticles2D
+WorldEnvironment
+ColorRect
 BackBufferCopy
 Area2D
 Sprite2D
@@ -8,8 +13,3 @@ Control
 PointLight2D
 LightOccluder2D
 Label
-ColorRect
-CollisionPolygon2D
-ProgressBar
-Polygon2D
-StaticBody2D
