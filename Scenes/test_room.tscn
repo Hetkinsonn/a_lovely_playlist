@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2yh6bjijm7j4"]
+[gd_scene load_steps=9 format=3 uid="uid://d2yh6bjijm7j4"]
 
 [ext_resource type="PackedScene" uid="uid://buwhnonx0h8q6" path="res://Scenes/Liya.tscn" id="1_irvn2"]
 [ext_resource type="PackedScene" uid="uid://cqinsp76bvluw" path="res://plohie_chuvstva.tscn" id="2_vjks2"]
 [ext_resource type="Texture2D" uid="uid://dr5v4725i53kt" path="res://Images/Tileset1.png" id="3_5k3pu"]
 [ext_resource type="PackedScene" uid="uid://da2xt52l7xcyj" path="res://Scenes/shell.tscn" id="4_mfmlf"]
+[ext_resource type="PackedScene" uid="uid://cv6f0d334pos4" path="res://Scenes/monitoring_area.tscn" id="5_f0gut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lxuf"]
 texture = ExtResource("3_5k3pu")
@@ -34,17 +35,19 @@ background_mode = 3
 tonemap_mode = 3
 glow_enabled = true
 glow_levels/3 = 0.0
-glow_levels/4 = 3.5
+glow_levels/4 = 0.5
 glow_levels/5 = 0.85
-glow_bloom = 0.12
+glow_strength = 0.29
+glow_bloom = 1.0
 glow_blend_mode = 0
 
 [node name="TestRoom" type="Node2D"]
 
-[node name="Plohie_chuvstva" parent="." instance=ExtResource("2_vjks2")]
+[node name="Plohie_chuvstva" parent="." node_paths=PackedStringArray("MonitoringArea") instance=ExtResource("2_vjks2")]
 position = Vector2(600, 544)
 Beg = 488.0
 End = 672.0
+MonitoringArea = NodePath("../MonitoringArea")
 
 [node name="Plohie_chuvstva2" parent="." instance=ExtResource("2_vjks2")]
 position = Vector2(2400, 544)
@@ -69,7 +72,11 @@ offset_left = -824.0
 offset_top = -704.0
 offset_right = 3360.0
 offset_bottom = 1200.0
-color = Color(0, 0, 0, 0.631373)
+color = Color(0, 0, 0, 0.156863)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yloh2")
+
+[node name="MonitoringArea" parent="." instance=ExtResource("5_f0gut")]
+position = Vector2(608, 512)
+scale = Vector2(5.5, 1)

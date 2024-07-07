@@ -72,7 +72,7 @@ func _input(event):
 		$Camera2D.zoom.y /= 1.2
 	if Input.is_action_just_pressed("lbm"):
 		var si = shell.instantiate()
-		si.position = global_position
+		si.position = $RotPo/Pos.global_position
 		si.rotation = $RotPo.global_rotation
 		get_tree().current_scene.add_child(si)
 

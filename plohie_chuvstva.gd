@@ -4,6 +4,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var Beg: float
 @export var End: float
+@export var MonitoringArea: Area2D
 
 @onready var target: CharacterBody2D
 @onready var AS = $AnimatedSprite2D
@@ -19,7 +20,13 @@ func _ready():
 	AS.play("Idle")
 
 func _process(delta):
-	
+	if MonitoringArea != null:
+		if MonitoringArea.target != null:
+			target = MonitoringArea.target
+			AS.play("run")
+		else:
+			target = null
+			AS.play("Idle")
 	if target_captured == true and target != null:
 		target.Health -= 1
 		target.debuff1 = 5
@@ -29,7 +36,7 @@ func _physics_process(delta):
 	if 1 == 3:
 		velocity.y += gravity * delta
 	
-	if chase == true and target != null:
+	if target != null:
 		#look_at(Vector2(target.position.x,position.y))
 		var different = target.position.x - position.x
 		var gpx = global_position.x
@@ -52,10 +59,10 @@ func _physics_process(delta):
 		velocity = Vector2(0,0)
 	move_and_slide()
 
-func _on_sistema_poiska_pidorasov_body_entered(body):
-	if body.name == "LiyaPlayer":
-		target = body
-		chase = true
+
+	#if body.name == "LiyaPlayer":
+	#	target = body
+	#	chase = true
 
 
 func _on_hit_box_body_entered(body):
@@ -68,7 +75,4 @@ func _on_hit_box_body_exited(body):
 	target_captured = false
 
 
-func _on_sistema_poiska_pidorasov_body_exited(body):
-	if body.name == "LiyaPlayer":
-		AS.play("Idle")
-		target = null
+

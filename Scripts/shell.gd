@@ -26,3 +26,8 @@ func _process(delta):
 	move_and_slide()
 	
 
+func _on_detector_body_entered(body):
+	if body.is_in_group("Enemies"):
+		body.queue_free()
+		death()
+		queue_free()

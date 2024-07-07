@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6f0d334pos4"]
+
+[ext_resource type="Script" path="res://Scripts/monitoring_area.gd" id="1_xehuu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1qc3"]
+size = Vector2(128, 128)
+
+[node name="MonitoringArea" type="Area2D"]
+script = ExtResource("1_xehuu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b1qc3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
